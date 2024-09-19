@@ -1,0 +1,14 @@
+@model WebApplication1.Models.OpcionModel
+
+<h1>@Model.TituloSeleccionado</h1>
+<p>@Model.Descripcion</p>
+@if (Model.ImagenUrl != "/img/default.jpg" && !string.IsNullOrEmpty(Model.ImagenUrl))
+{
+    <img src="@Model.ImagenUrl" alt="Imagen de @Model.TituloSeleccionado" />
+}
+<ul>
+    @foreach (var numero in Model.NumerosAleatorios)
+    {
+        <li>@numero</li>
+    }
+</ul>

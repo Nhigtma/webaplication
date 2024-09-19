@@ -1,95 +1,110 @@
 @model WebApplication1.Models.OpcionModel
-
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Opciones</title>
+@{
+    ViewData["Title"] = "Opciones";
+    Layout = "_Layout"; // Especifica el layout que vas a usar
+}
+@section Styles {
     <style>
         .container {
             display: flex;
         }
         .menu {
-            width: 200px;
-            border-right: 1px solid #ccc;
-            padding: 10px;
+            width: 220px;
+            border-right: 2px solid #ccc;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            height: 100vh;
+            overflow-y: auto;
         }
-        .content {
-            padding: 10px;
-            flex: 1;
+        .menu h2 {
+            margin-top: 0;
+            font-size: 24px;
+            color: #333;
         }
         .menu a {
             display: block;
-            padding: 5px;
+            padding: 10px;
             text-decoration: none;
-            color: black;
+            color: #333;
+            font-size: 18px;
+            border-radius: 5px;
+            transition: background-color 0.3s, color 0.3s;
         }
         .menu a:hover {
-            background-color: #f0f0f0;
+            background-color: #007bff;
+            color: #fff;
+        }
+        .content {
+            margin-left: 240px;
+            padding: 20px;
+            flex: 1;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            overflow-y: auto;
+        }
+        .content h1 {
+            font-size: 28px;
+            margin-bottom: 10px;
+            color: #007bff;
+        }
+        .content p {
+            font-size: 16px;
+            line-height: 1.5;
+            color: #555;
         }
         .content img {
-            max-width: 100%; /* Ajusta la imagen al tamaño del contenedor */
+            max-width: 100%;
             height: auto;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin: 10px 0;
+        }
+        .content ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        .content li {
+            padding: 8px;
+            border-bottom: 1px solid #ddd;
+            background-color: #fafafa;
+        }
+        .content li:nth-child(even) {
+            background-color: #f5f5f5;
         }
     </style>
+}
+
+<div class="container">
+    <div class="menu">
+        <h2>Opciones</h2>
+        <a href="javascript:void(0);" onclick="updateContent('concepto')">Concepto de Lista</a>
+        <a href="javascript:void(0);" onclick="updateContent('enlazada')">Lista Enlazada</a>
+        <a href="javascript:void(0);" onclick="updateContent('doble')">Lista Doble Enlazada</a>
+        <a href="javascript:void(0);" onclick="updateContent('circular')">Lista Circular</a>
+    </div>
+    <div class="content" id="content">
+        @await Html.PartialAsync("_ContenidoParcial", Model) <!-- Renderiza la vista parcial aquí -->
+    </div>
+</div>
+
+@section Scripts {
     <script>
         function updateContent(opcion) {
-            const tituloSeleccionado = document.getElementById('titulo-seleccionado');
-            const descripcion = document.getElementById('descripcion');
-            const imagen = document.getElementById('imagen');
+            const contentElement = document.getElementById('content');
 
-            const opciones = {
-                concepto: {
-                    titulo: "Concepto de Lista",
-                    descripcion: "Una lista en programación es una estructura de datos que almacena una colección de elementos ordenados y accesibles por índices. Los elementos pueden ser de cualquier tipo y la lista permite realizar operaciones como agregar, eliminar y modificar elementos. Las listas son mutables en muchos lenguajes, lo que significa que se pueden cambiar después de su creación.",
-                    imagen: "/img/concepto1.jpg" // Ruta pública desde la carpeta wwwroot
-                },
-                enlazada: {
-                    titulo: "Lista Enlazada",
-                    descripcion: "Una lista enlazada es una estructura de datos compuesta por nodos, donde cada nodo contiene un valor y una referencia (o enlace) al siguiente nodo en la secuencia. A diferencia de las listas tradicionales, que utilizan índices para acceder a los elementos, las listas enlazadas permiten una inserción y eliminación de elementos más eficiente al no requerir el desplazamiento de otros elementos. Los nodos están conectados secuencialmente y el primer nodo se llama 'cabeza' mientras que el último puede tener una referencia nula, indicando el final de la lista.",
-                    imagen: "/img/enlazada1.jpg" // Ruta pública desde la carpeta wwwroot
-                },
-                doble: {
-                    titulo: "Lista Enlazada Doble",
-                    descripcion: "Una lista doblemente enlazada es una variante de la lista enlazada en la que cada nodo contiene dos referencias: una al siguiente nodo y otra al nodo anterior. Esto permite una navegación bidireccional a través de la lista, facilitando la inserción y eliminación de elementos en cualquier posición de manera más eficiente, ya que se puede acceder tanto al nodo anterior como al siguiente. La lista doblemente enlazada consta de un nodo 'cabeza' al inicio y un nodo 'cola' al final, ambos con referencias a sus respectivos nodos vecinos.",
-                    imagen: "/img/doble1.jpg" // Ruta pública desde la carpeta wwwroot
-                },
-                circular: {
-                    titulo: "Lista Enlazada Circular",
-                    descripcion: "Una lista circular es una estructura de datos en la que los nodos están conectados de manera que el último nodo apunta de nuevo al primer nodo, formando un ciclo continuo. En una lista circular, no hay un final explícito, ya que el recorrido de la lista puede continuar indefinidamente desde el último nodo de vuelta al primero. Esto permite una navegación cíclica eficiente y es útil para aplicaciones que requieren recorridos repetitivos o continuos, como en el manejo de buffers o en algoritmos que necesitan recorrer elementos en un ciclo.",
-                    imagen: "/img/circular1.jpg" // Ruta pública desde la carpeta wwwroot
-                }
-            };
-
-            if (opciones[opcion]) {
-                tituloSeleccionado.textContent = opciones[opcion].titulo;
-                descripcion.textContent = opciones[opcion].descripcion;
-                imagen.src = opciones[opcion].imagen;
-                imagen.alt = opciones[opcion].titulo; // Agrega un texto alternativo para accesibilidad
-            } else {
-                tituloSeleccionado.textContent = "Selecciona una opción";
-                descripcion.textContent = "Selecciona una opción de la lista para ver más detalles.";
-                imagen.src = ""; // Limpia la imagen si no hay opción seleccionada
-                imagen.alt = "";
-            }
+            fetch(`/Opciones/Main?opcion=${opcion}`)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+                    return response.text();
+                })
+                .then(html => {
+                    contentElement.innerHTML = html; // Inserta solo el nuevo contenido
+                })
+                .catch(error => console.error('Error fetching content:', error));
         }
     </script>
-</head>
-<body>
-    <div class="container">
-        <div class="menu">
-            <h2>Opciones</h2>
-            @foreach (var opcion in Model.Opciones)
-            {
-                <a href="javascript:void(0);" onclick="updateContent('@opcion.Key')">
-                    @opcion.Value
-                </a>
-            }
-        </div>
-        <div class="content">
-            <h1 id="titulo-seleccionado">@Model.TituloSeleccionado</h1>
-            <p id="descripcion">@Model.Descripcion</p>
-            <img id="imagen" src="" alt="" />
-        </div>
-    </div>
-</body>
-</html>
+}
