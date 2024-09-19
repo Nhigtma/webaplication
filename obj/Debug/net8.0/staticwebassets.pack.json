@@ -5,12 +5,44 @@
       "PackagePath": "staticwebassets\\WebApplication.bundle.scp.css"
     },
     {
+      "Id": "C:\\Users\\USUARIO\\OneDrive - UCompensar\\Documentos\\practices PHP\\WebApplication\\wwwroot\\c#\\circular.cs",
+      "PackagePath": "staticwebassets\\c#\\circular.cs"
+    },
+    {
+      "Id": "C:\\Users\\USUARIO\\OneDrive - UCompensar\\Documentos\\practices PHP\\WebApplication\\wwwroot\\c#\\concepto.cs",
+      "PackagePath": "staticwebassets\\c#\\concepto.cs"
+    },
+    {
+      "Id": "C:\\Users\\USUARIO\\OneDrive - UCompensar\\Documentos\\practices PHP\\WebApplication\\wwwroot\\c#\\dobleEnlazada.cs",
+      "PackagePath": "staticwebassets\\c#\\dobleEnlazada.cs"
+    },
+    {
+      "Id": "C:\\Users\\USUARIO\\OneDrive - UCompensar\\Documentos\\practices PHP\\WebApplication\\wwwroot\\c#\\enlazada.cs",
+      "PackagePath": "staticwebassets\\c#\\enlazada.cs"
+    },
+    {
       "Id": "C:\\Users\\USUARIO\\OneDrive - UCompensar\\Documentos\\practices PHP\\WebApplication\\wwwroot\\css\\site.css",
       "PackagePath": "staticwebassets\\css\\site.css"
     },
     {
       "Id": "C:\\Users\\USUARIO\\OneDrive - UCompensar\\Documentos\\practices PHP\\WebApplication\\wwwroot\\favicon.ico",
       "PackagePath": "staticwebassets\\favicon.ico"
+    },
+    {
+      "Id": "C:\\Users\\USUARIO\\OneDrive - UCompensar\\Documentos\\practices PHP\\WebApplication\\wwwroot\\img\\circular1.jpg",
+      "PackagePath": "staticwebassets\\img\\circular1.jpg"
+    },
+    {
+      "Id": "C:\\Users\\USUARIO\\OneDrive - UCompensar\\Documentos\\practices PHP\\WebApplication\\wwwroot\\img\\concepto1.jpg",
+      "PackagePath": "staticwebassets\\img\\concepto1.jpg"
+    },
+    {
+      "Id": "C:\\Users\\USUARIO\\OneDrive - UCompensar\\Documentos\\practices PHP\\WebApplication\\wwwroot\\img\\doble1.jpg",
+      "PackagePath": "staticwebassets\\img\\doble1.jpg"
+    },
+    {
+      "Id": "C:\\Users\\USUARIO\\OneDrive - UCompensar\\Documentos\\practices PHP\\WebApplication\\wwwroot\\img\\enlazada1.jpg",
+      "PackagePath": "staticwebassets\\img\\enlazada1.jpg"
     },
     {
       "Id": "C:\\Users\\USUARIO\\OneDrive - UCompensar\\Documentos\\practices PHP\\WebApplication\\wwwroot\\js\\site.js",

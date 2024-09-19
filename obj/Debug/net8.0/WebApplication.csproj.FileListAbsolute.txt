@@ -28,3 +28,4 @@ C:\Users\USUARIO\OneDrive - UCompensar\Documentos\practices PHP\WebApplication\o
 C:\Users\USUARIO\OneDrive - UCompensar\Documentos\practices PHP\WebApplication\obj\Debug\net8.0\WebApplication.pdb
 C:\Users\USUARIO\OneDrive - UCompensar\Documentos\practices PHP\WebApplication\obj\Debug\net8.0\WebApplication.genruntimeconfig.cache
 C:\Users\USUARIO\OneDrive - UCompensar\Documentos\practices PHP\WebApplication\obj\Debug\net8.0\ref\WebApplication.dll
+C:\Users\USUARIO\OneDrive - UCompensar\Documentos\practices PHP\WebApplication\obj\Debug\net8.0\WebApplication.sourcelink.json
