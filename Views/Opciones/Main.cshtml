@@ -1,0 +1,85 @@
+@model WebApplication1.Models.OpcionModel
+@{
+    var opciones = Model.Opciones;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Opciones</title>
+    <style>
+        .container {
+            display: flex;
+        }
+        .menu {
+            width: 200px;
+            border-right: 1px solid #ccc;
+            padding: 10px;
+        }
+        .content {
+            padding: 10px;
+            flex: 1;
+        }
+        .menu a {
+            display: block;
+            padding: 5px;
+            text-decoration: none;
+            color: black;
+        }
+        .menu a:hover {
+            background-color: #f0f0f0;
+        }
+    </style>
+    <script>
+        function updateContent(opcion) {
+            const contentArea = document.getElementById('content-area');
+            const tituloSeleccionado = document.getElementById('titulo-seleccionado');
+            const descripcion = document.getElementById('descripcion');
+
+            const opciones = {
+                concepto: {
+                    titulo: "Concepto de Lista",
+                    descripcion: "Aquí puedes agregar el contenido relacionado con Concepto de Lista."
+                },
+                enlazada: {
+                    titulo: "Lista Enlazada",
+                    descripcion: "Aquí puedes agregar el contenido relacionado con Lista Enlazada."
+                },
+                doble: {
+                    titulo: "Lista Enlazada Doble",
+                    descripcion: "Aquí puedes agregar el contenido relacionado con Lista Enlazada Doble."
+                },
+                circular: {
+                    titulo: "Lista Enlazada Circular",
+                    descripcion: "Aquí puedes agregar el contenido relacionado con Lista Enlazada Circular."
+                }
+            };
+
+            if (opciones[opcion]) {
+                tituloSeleccionado.textContent = opciones[opcion].titulo;
+                descripcion.textContent = opciones[opcion].descripcion;
+            } else {
+                tituloSeleccionado.textContent = "Selecciona una opción";
+                descripcion.textContent = "Selecciona una opción de la lista para ver más detalles.";
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <div class="menu">
+            <h2>Opciones</h2>
+            @foreach (var opcion in Model.Opciones)
+            {
+                <a href="javascript:void(0);" onclick="updateContent('@opcion.Key')">
+                    @opcion.Value
+                </a>
+            }
+        </div>
+        <div class="content">
+            <h1 id="titulo-seleccionado">@Model.TituloSeleccionado</h1>
+            <p id="descripcion">@Model.Descripcion</p>
+        </div>
+    </div>
+</body>
+</html>
